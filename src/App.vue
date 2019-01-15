@@ -3,6 +3,7 @@
         <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
        <main-card/>
         <app-footer v-bind:title="title"></app-footer>
+        <modal-component></modal-component> 
     </div>
 </template>
 

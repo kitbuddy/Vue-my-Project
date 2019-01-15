@@ -1,8 +1,11 @@
 <template>
 
   <section>
-  <transition name="modal"  >
+
+  <transition name="modal" v-if="showModal"> 
+   
  <div class="modal-mask">
+    <button v-on:click="close()">TEST</button>
       <div class="modal-wrapper">
         <div class="modal-container">
 
@@ -17,35 +20,10 @@
               default body
             </slot>
           </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="showmask = false">
-                OK
-              </button>
-            </slot>
-          </div>
         </div>
       </div>
     </div>
   </transition>
-
-
-<div id="app">
-<button id="show-modal" @click="showmask = !showmask">show mask</button>
-  <!-- use the modal component, pass in the prop -->
-  <modal v-if="showModal" @close="showModal = false">
-    <!--
-      you can use custom content here to overwrite
-      default content
-    -->
-    <div>
-      this is test div
-    </div>
-    <h3 slot="header">custom header</h3>
-  </modal>
-</div>
   </section>
 
 </template>
@@ -58,18 +36,15 @@ export default {
   name: "modalComponent",
   props: [],
   mounted() {},
-  data: function() {
+  data() {
     return {
-      showModal: false,
+      showModal: true,
       showmask: false
     };
   },
   methods: {
-    hideMessage() {
-      this.showModal = false;
-    },
     close() {
-      console.log(" this is from close button");
+      this.showModal = false;
     }
   },
   computed: {}
@@ -82,7 +57,6 @@ export default {
   background-color: gray;
   margin-top: 0%;
 }
-
 
 #message {
   position: absolute;
@@ -128,15 +102,6 @@ export default {
 .modal-default-button {
   float: right;
 }
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
 
 .modal-enter {
   opacity: 0;
