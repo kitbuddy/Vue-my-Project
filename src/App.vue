@@ -42,6 +42,10 @@ export default {
   methods: {
     updateTitle: function(updatedTitle) {
       this.title = updatedTitle;
+    },
+
+    thismethodidTest: function() {
+      alert('test alert')
     }
   }
 };
