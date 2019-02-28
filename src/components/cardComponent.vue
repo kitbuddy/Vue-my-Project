@@ -1,14 +1,12 @@
 <template>
   <div>
-      <modalComponent></modalComponent>
-
+      <ImageInfo v-if="openImageInfo"></ImageInfo>
 <div class="main-card">
-
 <span class=" row">
        
 <div class="card col-xs-6 col-sm-3">
-    <div class="container">
-         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
+    <div class="container"  v-on:click="showImageInfoModal()">
+         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%" >
     <h4><b>John Doe</b></h4> 
     <p>Architect & Engineer</p> 
   </div>
@@ -31,8 +29,6 @@
   </div>
 </div>
 </span>
-
-
 
 <span class=" row">
        
@@ -88,9 +84,7 @@
     </div>
   </transition>
   </section>
-
   </div>
-
   </div>
 
   
@@ -100,28 +94,30 @@
 
 <script>
 
-import modalComponent from '../components/modalComponent.vue'
-
+import ImageInfo from "./ImageInfo.vue"
 
 export default {
   props: {},
   data() {
     return {
-      showModal: false
+      showModal: false,
+      openImageInfo: false
     };
   },
-   created() {
+  mounted() {
+    ImageInfo
+  },
+    created() {
   },
   methods: {
-    callmodal() {
-      console.log('this is call modal' + this.showModal)
-     this.showModal = true
-    },
     changeTitle: function() {
       this.$emit("changeTitle", "Vue Ninjas");
     },
     close() {
       this.showModal = false;
+    },
+    showImageInfoModal() {
+      this.openImageInfo = true
     }
   }
 };

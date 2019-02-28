@@ -1,58 +1,45 @@
 <template>
-<div>
-  <section>
-
-  <transition name="modal" v-if="showModal"> 
-   
- <div class="modal-mask">
-    <button class="close-modal" v-on:click="close()">X</button>
-      <div class="modal-wrapper" >
-        <div class="modal-container">
-
-          <!-- <div class="modal-header">
-            <slot name="header">
-                Login              
-            </slot>
-          </div> -->
-
-          <div class="modal-body">
-            <slot name="body">
-                <loginComponent v-bind:userPresent= true></loginComponent>
-            </slot>
-          </div>
+  <div>
+    <section>
+      <ImageInfo v-if="openImageInfoFlag"></ImageInfo>
+      <transition name="modal" v-if="showModal">
+        <div class="modal-mask">
+          <button class="close-modal" v-on:click="close()">X</button>
+          
+            No image available
         </div>
-      </div>
-    </div>
-  </transition>
-  </section>
-</div>
+      </transition>
+    </section>
+  </div>
 </template>
 
 <script>
 import Vue from "vue";
-import loginComponent from './loginComponent.vue';
+// import loginComponent from "./loginComponent.vue";
+import ImageInfo from "./ImageInfo.vue"
 
 
-Vue.component("modalComponent", {});
+Vue.component("ImageInfo", {});
 export default {
-  name: "modalComponent",
+  name: "ImageInfo",
   components: {
-    loginComponent
+    // loginComponent,
+    ImageInfo
   },
   props: [],
   mounted() {
-    loginComponent
+    // loginComponent;
   },
   data() {
     return {
       showModal: true,
-      showmask: false
+      showmask: false,
+      openImageInfoFlag: false
     };
   },
   methods: {
     close() {
       this.showModal = false;
-
     }
   },
   computed: {}
@@ -92,7 +79,7 @@ export default {
   width: max-content !important;
   margin: 0px auto;
   /* padding: 20px 30px; */
-  background-color:  whitesmoke;
+  background-color: whitesmoke;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
@@ -129,7 +116,7 @@ export default {
 .close-modal {
   /* position: absolute;
   float: right; */
-   position: absolute;
+  position: absolute;
   right: 0px;
   background: rgb(0, 128, 119);
 }
