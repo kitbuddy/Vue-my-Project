@@ -1,69 +1,75 @@
 <template>
   <div>
-      <ImageInfo v-if="openImageInfo"></ImageInfo>
-<div class="main-card">
-<span class=" row">
-       
-<div class="card col-xs-6 col-sm-3">
-    <div class="container"  v-on:click="showImageInfoModal()">
-         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%" >
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+    <loginComponent v-if="openImageInfo"></loginComponent>
+    <div class="main-card">
+      <span class="row">
+        <div class="card col-xs-6 col-sm-3" @click="showImageInfoModal()">
+          <div class="container">
+            <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
+            <h4>
+              <b>John Doe</b>
+            </h4>
+            <p>Architect & Engineer</p>
+          </div>
+        </div>
 
-<div class="card col-xs-6 col-sm-3">
-    <div class="container">
-         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+        <div class="card col-xs-6 col-sm-3">
+          <div class="container">
+            <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
+            <h4>
+              <b>John Doe</b>
+            </h4>
+            <p>Architect & Engineer</p>
+          </div>
+        </div>
 
+        <div class="card col-xs-6 col-sm-3">
+          <div class="container" @click="showImageInfoModal()">
+            <img src="../../public/images/clickImage.png" alt="Avatar" style="width:100%">
+            <h4>
+              <b>John Doe</b>
+            </h4>
+            <p>Architect & Engineer</p>
+          </div>
+        </div>
+      </span>
+      
+      <span class="row">
+        <div class="card col-xs-6 col-sm-3">
+          <div class="container">
+            <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
+            <h4>
+              <b>John Doe</b>
+            </h4>
+            <p>Architect & Engineer</p>
+          </div>
+        </div>
 
-<div class="card col-xs-6 col-sm-3">
-    <div class="container"  @click="callmodal()">
-         <img src="../../public/images/clickImage.png" alt="Avatar" style="width:100%">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-</span>
+        <div class="card col-xs-6 col-sm-3">
+          <div class="container">
+            <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
+            <h4>
+              <b>John Doe</b>
+            </h4>
+            <p>Architect & Engineer</p>
+          </div>
+        </div>
 
-<span class=" row">
-       
-<div class="card col-xs-6 col-sm-3">
-    <div class="container">
-         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-
-<div class="card col-xs-6 col-sm-3">
-    <div class="container">
-         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-
-
-<div class="card col-xs-6 col-sm-3">
-    <div class="container">
-         <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
-</span>
-  </div>
-  <div id="modalForItem">
-<section>
-
-  <transition name="modal" v-if="showModal"> 
-   
- <div class="modal-mask">
+        <div class="card col-xs-6 col-sm-3">
+          <div class="container">
+            <img src="../../public/images/img-2.jpg" alt="Avatar" style="width:100%">
+            <h4>
+              <b>John Doe</b>
+            </h4>
+            <p>Architect & Engineer</p>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div id="modalForItem">
+      <section>
+        <!-- <transition name="modal" v-if="showModal">  -->
+        <!-- <div class="modal-mask">
     <button v-on:click="close()">TEST</button>
       <div class="modal-wrapper">
         <div class="modal-container">
@@ -81,20 +87,17 @@
           </div>
         </div>
       </div>
+        </div>-->
+        <!-- </transition> -->
+      </section>
     </div>
-  </transition>
-  </section>
   </div>
-  </div>
-
-  
-
 </template>
 
 
 <script>
-
-import ImageInfo from "./ImageInfo.vue"
+import ImageInfo from "./ImageInfo.vue";
+import loginComponent from "./loginComponent.vue";
 
 export default {
   props: {},
@@ -105,10 +108,9 @@ export default {
     };
   },
   mounted() {
-    ImageInfo
+    ImageInfo, loginComponent;
   },
-    created() {
-  },
+  created() {},
   methods: {
     changeTitle: function() {
       this.$emit("changeTitle", "Vue Ninjas");
@@ -117,7 +119,9 @@ export default {
       this.showModal = false;
     },
     showImageInfoModal() {
-      this.openImageInfo = true
+      alert("I am in showImageInfoModal");
+      this.openImageInfo = true;
+      console.log(this.openImageInfo);
     }
   }
 };
@@ -137,8 +141,8 @@ export default {
   padding: 10px 30px;
   margin: 3% 20%;
   width: 65%;
-  max-height: 70%; 
-  background-color: #F8F8F8;
+  max-height: 70%;
+  background-color: #f8f8f8;
 }
 
 .column {
@@ -157,7 +161,6 @@ export default {
 .container {
   padding: 30px 8px;
 }
-
 
 /* this is css for modals only  */
 .modal-mask {
@@ -216,5 +219,4 @@ export default {
 }
 
 /* this is css for modals only  */
-
 </style>

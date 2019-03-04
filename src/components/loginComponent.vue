@@ -1,38 +1,45 @@
 <template>
+  <div class="loginPage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <div class="loginPage">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <h2>Modal Login Form</h2> -->
+    <!-- <div id="id01" class="modal" > -->
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+        <img src="../../public/images/ironman.jpeg" alt="Avatar" class="avatar">
+      </div>
 
-<!-- <h2>Modal Login Form</h2> -->
-<!-- <div id="id01" class="modal" > -->
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-      <img src="../../public/images/ironman.jpeg" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container">
-      <label for="uname" ><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" 
-              v-model="username" required>
-
-      <label for="psw" ><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" 
-              v-model="password" required>
+      <div class="container">
+        <label for="uname">
+          <b>Username</b>
+        </label>
+        <input type="text" placeholder="Enter Username" name="uname" v-model="username" required>
+        
+        <label for="psw">
+          <b>Password</b>
+        </label>
+        <input type="password" placeholder="Enter Password" name="psw" v-model="password" required>
         
         <button v-on:click="checkLogin()">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
- <!-- </div> -->
+      <div class="container" style="background-color:#f1f1f1">
+        <button
+          type="button"
+          onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn"
+        >Cancel</button>
+        <span class="psw">Forgot
+          <a href="#">password?</a>
+        </span>
+      </div>
+    </form>
+  </div>
+  <!-- </div> -->
 </template>
 
 // <script>
@@ -43,21 +50,23 @@ export default {
   name: "LoginComponent",
   data() {
     return {
-        userPresent: true
-  }
+      userPresent: true,
+      password: "",
+      username: ""
+    };
   },
   methods: {
-   callComponent() {
-       alert('this is from callComponent')
-    //    document.getElementById('id01').style.display='block'
-   },
+    callComponent() {
+      alert("this is from callComponent");
+      //    document.getElementById('id01').style.display='block'
+    },
 
-   checkLogin() {
-     alert('I Am allowing user this time')
-     if(this.username = 'aaa' && this.password == 'aaa'){
-      this.userPresent = true
-     }
-   }
+    checkLogin() {
+      alert("I Am allowing user this time");
+      if (this.username === "aaa" && this.password === "aaa") {
+        this.userPresent = true;
+      }
+    }
   },
   computed: {}
 };
@@ -142,7 +151,7 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color:  whitesmoke;
+  background-color: whitesmoke;
   margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
   /* border: 1px solid #888; */
   width: 60%; /* Could be more or less, depending on screen size */
@@ -198,6 +207,4 @@ span.psw {
     width: 100%;
   }
 }
-
-
 </style>

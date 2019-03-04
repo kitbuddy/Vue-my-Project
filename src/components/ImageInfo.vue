@@ -2,11 +2,10 @@
   <div>
     <section>
       <ImageInfo v-if="openImageInfoFlag"></ImageInfo>
-      <transition name="modal" v-if="showModal">
+      <transition name="modal" >
         <div class="modal-mask">
           <button class="close-modal" v-on:click="close()">X</button>
-          
-            No image available
+              No image available
         </div>
       </transition>
     </section>
@@ -15,20 +14,15 @@
 
 <script>
 import Vue from "vue";
-// import loginComponent from "./loginComponent.vue";
-import ImageInfo from "./ImageInfo.vue"
 
 
 Vue.component("ImageInfo", {});
 export default {
   name: "ImageInfo",
   components: {
-    // loginComponent,
-    ImageInfo
   },
   props: [],
   mounted() {
-    // loginComponent;
   },
   data() {
     return {
@@ -39,7 +33,7 @@ export default {
   },
   methods: {
     close() {
-      this.showModal = false;
+      this.openImageInfoFlag = false;
     }
   },
   computed: {}
