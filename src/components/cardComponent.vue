@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loginComponent v-if="openImageInfo"></loginComponent>
+    <loginComponent></loginComponent>
     <div class="main-card">
       <span class="row">
         <div class="card col-xs-6 col-sm-3" @click="showImageInfoModal()">
@@ -121,7 +121,7 @@ export default {
     showImageInfoModal() {
       alert("I am in showImageInfoModal");
       this.openImageInfo = true;
-      console.log(this.openImageInfo);
+      // console.log(this.openImageInfo);
     }
   }
 };

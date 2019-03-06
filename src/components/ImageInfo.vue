@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="imageInfo">
     <section>
       <ImageInfo v-if="openImageInfoFlag"></ImageInfo>
       <transition name="modal" >

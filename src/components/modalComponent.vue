@@ -59,7 +59,7 @@ export default {
   height: 50px;
   background-color: gray;
   margin-top: 0%;
-  text-align-last: auto
+  text-align-last: auto;
 }
 
 #message {
@@ -84,10 +84,8 @@ export default {
 }
 
 .modal-container {
-  /* width: 300px; */
   width: max-content !important;
   margin: 0px auto;
-  /* padding: 20px 30px; */
   background-color: whitesmoke;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -123,11 +121,8 @@ export default {
 }
 
 .close-modal {
-  /* position: absolute;
-  float: right; */
   position: absolute;
   right: 0px;
   background: rgb(0, 128, 119);
-
 }
 </style>

@@ -74,11 +74,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* body {
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* Full-width input fields */
 
 input[type="text"],
 input[type="password"] {
