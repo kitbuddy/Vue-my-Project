@@ -3,18 +3,20 @@
         <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
        <main-card/>
         <app-footer v-bind:title="title"></app-footer>
+        <modal-component> This is modal component </modal-component> 
     </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 import HeaderWorld from "./components/HeaderWorld.vue";
 import FooterWorld from "./components/FooterWorld.vue";
-import cardComponent from "./components/cardComponent.vue"
-import Ninjas from "./components/Ninjas.vue";
-import BootstrapVue from "bootstrap-vue";
-import Vue from "vue";
-import modalComponent from "./components/modalComponent.vue"
+import cardComponent from "./components/cardComponent.vue";
+// import Ninjas from "./components/Ninjas.vue";
+// import BootstrapVue from "bootstrap-vue";
+// import Vue from "vue";
+// import ImageInfo from "./components/ImageInfo.vue";
+import modalComponent from "./components/modalComponent.vue";
 
 export default {
   name: "app",
@@ -23,9 +25,11 @@ export default {
     "app-footer": FooterWorld,
     // "app-ninjas": Ninjas,
     "main-card": cardComponent,
-    modalComponent
+    modalComponent,
+    // ImageInfo
     // HelloWorld
   },
+
   data() {
     return {
       ninjas: [

@@ -1,6 +1,7 @@
 <template>
     <footer>
         <p>Copyright 2018 {{ title }}</p>
+        <a href="#top">BACK TO TOP</a>
     </footer>
 </template>
 <script>

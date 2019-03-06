@@ -1,24 +1,11 @@
 <template>
-  <div>
+  <div class="imageInfo">
     <section>
-      <transition name="modal" v-if="showModal">
+      <ImageInfo v-if="openImageInfoFlag"></ImageInfo>
+      <transition name="modal" >
         <div class="modal-mask">
           <button class="close-modal" v-on:click="close()">X</button>
-          <div class="modal-wrapper">
-            <div class="modal-container">
-              <div class="modal-header">
-                <slot name="header">
-                  <h1>THIS IS HEADER</h1>
-                </slot>
-              </div>
-
-              <div class="modal-body">
-                <slot name="body">
-                  <loginComponent v-bind:userPresent="true"></loginComponent>
-                </slot>
-              </div>
-            </div>
-          </div>
+              No image available
         </div>
       </transition>
     </section>
@@ -27,27 +14,26 @@
 
 <script>
 import Vue from "vue";
-import loginComponent from "./loginComponent.vue";
 
-Vue.component("modalComponent", {});
+
+Vue.component("ImageInfo", {});
 export default {
-  name: "modalComponent",
+  name: "ImageInfo",
   components: {
-    loginComponent
   },
   props: [],
   mounted() {
-    loginComponent;
   },
   data() {
     return {
       showModal: true,
-      showmask: false
+      showmask: false,
+      openImageInfoFlag: false
     };
   },
   methods: {
     close() {
-      this.showModal = false;
+      this.openImageInfoFlag = false;
     }
   },
   computed: {}
@@ -59,7 +45,6 @@ export default {
   height: 50px;
   background-color: gray;
   margin-top: 0%;
-  text-align-last: auto;
 }
 
 #message {
@@ -84,8 +69,10 @@ export default {
 }
 
 .modal-container {
+  /* width: 300px; */
   width: max-content !important;
   margin: 0px auto;
+  /* padding: 20px 30px; */
   background-color: whitesmoke;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -121,6 +108,8 @@ export default {
 }
 
 .close-modal {
+  /* position: absolute;
+  float: right; */
   position: absolute;
   right: 0px;
   background: rgb(0, 128, 119);

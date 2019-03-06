@@ -1,10 +1,10 @@
 <template>
     <div id="ninjas">
         <ul>
-            <li v-for="ninja in ninjas" v-on:click="ninja.show = !ninja.show">
+            <!-- <li v-for="ninja in ninjas" v-on:click="ninja.show = !ninja.show">
                 <h2>{{ ninja.name }}</h2>
                 <h3 v-show="ninja.show">{{ ninja.speciality }}</h3>
-            </li>
+            </li> -->
         </ul>
         <button v-on:click="deleteNinja">Delete a Ninja</button>
     </div>
@@ -17,9 +17,8 @@ export default {
         required: true
       }
     },
-    data(){
+    data() {
         return{
-
         }
     },
     methods: {
